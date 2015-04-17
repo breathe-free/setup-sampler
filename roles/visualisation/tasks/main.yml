@@ -1,0 +1,40 @@
+- name: git is installed
+  apt: name={{item}} state=present
+  with_items:
+    - git
+  sudo: yes
+
+- name: breathe-see source code is in place
+  git:
+    repo=https://github.com/breathe-free/breathe-see.git
+    clone=yes
+    depth=1
+    dest={{ ansible_env.HOME }}/breathe-see
+    force=yes
+    recursive=yes
+    update=yes
+    version=master
+
+# TODO don't run these scripts if node already installed (conditional)
+- name: node.js is installed
+  shell: "{{ ansible_env.HOME }}/breathe-see/useful_scripts/install_nodejs.sh"
+  sudo: yes
+
+- name: bower is installed
+  sudo: yes
+  npm:
+    global=yes
+    name=bower
+    production=yes
+    state=present
+    # version=???
+
+- name: npm packages installed
+  npm:
+    path={{ ansible_env.HOME }}/breathe-see
+    state=present
+
+- name: bower packages installed
+  bower:
+    path={{ ansible_env.HOME }}/breathe-see
+    state=present

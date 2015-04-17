@@ -1,3 +1,5 @@
 - hosts: all
-  tasks:
-    - debug: msg=hello
+  roles:
+    - sampling
+    - visualisation  # breathe-see
+    - booter         # supervisor.d

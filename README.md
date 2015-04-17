@@ -9,6 +9,10 @@
     # Then, test things are ok
     ansible all -m ping -i inventory
 
+## Get stuff
+
+You will need to put Pumps.py in your secrets directory.
+
 ## Deploy
 
     ansible-playbook breathe-free.yml

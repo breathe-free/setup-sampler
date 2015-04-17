@@ -1,0 +1,24 @@
+- name: apt packages are installed
+  apt: name={{item}} state=present
+  with_items:
+    - python-numpy
+    - python-matplotlib
+    - python-serial
+  sudo: yes
+
+- name: Sampling source code is in place
+  git:
+    repo=https://github.com/breathe-free/Sampling.git
+    clone=yes
+    depth=1
+    dest={{ ansible_env.HOME }}/Sampling
+    force=yes
+    recursive=yes
+    update=yes
+    version=master
+
+- name: Put Pumps.py in place, or fall over if it's not present locally
+  copy:
+    src=secrets/Pumps.py
+    dest={{ ansible_env.HOME }}/Sampling/Online/Pumps.py
+
