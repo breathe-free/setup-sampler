@@ -15,7 +15,7 @@
     update=yes
     version=master
 
-# TODO don't run these scripts if node already installed (conditional)
+# TODO don't run unecessarily
 - name: node.js is installed
   shell: "{{ ansible_env.HOME }}/breathe-see/useful_scripts/install_nodejs.sh"
   sudo: yes
