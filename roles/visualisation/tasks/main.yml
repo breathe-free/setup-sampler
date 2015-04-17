@@ -15,10 +15,15 @@
     update=yes
     version=master
 
-# TODO don't run unecessarily
-- name: node.js is installed
+- name: check if node is installed
+  shell: which node || true
+  register: whichnode
+  changed_when: False
+
+- name: install node
   shell: "{{ ansible_env.HOME }}/breathe-see/useful_scripts/install_nodejs.sh"
   sudo: yes
+  when: "'node' not in whichnode.stdout"
 
 - name: bower is installed
   sudo: yes
