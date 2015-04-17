@@ -1,0 +1,10 @@
+- name: supervisor is installed
+  apt: name=supervisor state=present
+  sudo: yes
+
+- name: supervisor is configured
+  sudo: yes
+  template:
+    dest=/etc/supervisor/conf.d/breathe-free.conf
+    src=breathe-free.conf.j2
+  notify: restart supervisor
