@@ -3,3 +3,7 @@
     - sampling
     - visualisation  # breathe-see
     - booter         # supervisor.d
+  tasks:
+    - name: Ensure hostname
+      hostname: name={{ hostname }}
+      sudo: yes
