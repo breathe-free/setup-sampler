@@ -19,6 +19,6 @@
 
 - name: Put Pumps.py in place, or fall over if it's not present locally
   copy:
-    src=secrets/Pumps.py
+    src={{ pumps_py_location }}/Pumps.py
     dest={{ ansible_env.HOME }}/Sampling/Online/Pumps.py
 
