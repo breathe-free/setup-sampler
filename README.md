@@ -16,7 +16,7 @@ Then:
 
 ## Get stuff
 
-You will need to put Pumps.py in your secrets directory, or the install will fall over.  For the moment, this is intentional.  You can configure the location in `roles/sampling/defaults/main.yml`.
+You will need to put Pumps.py in your secrets directory, or the install will fall over.  For the moment, this is intentional.  You can configure the location where the scripts look for Pumps.py by modifiying `roles/sampling/defaults/main.yml`.
 
 ## Deploy!
 
