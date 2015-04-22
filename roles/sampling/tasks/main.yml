@@ -15,7 +15,7 @@
     force=yes
     recursive=yes
     update=yes
-    version=master
+    version=User-Interface-Development
 
 - name: Put Pumps.py in place, or fall over if it's not present locally
   copy:
