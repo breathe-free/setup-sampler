@@ -24,6 +24,7 @@ stderr_logfile_maxbytes=1000000
 stderr_logfile_backups=10
 
 [program:Sampling]
+environment=MPLCONFIGDIR="/tmp",USER="pi",HOME="/home/pi"
 command=/usr/bin/python Controller.py
 directory={{ ansible_env.HOME }}/Sampling/Online
 autostart=true
